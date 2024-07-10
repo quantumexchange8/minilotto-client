@@ -29,7 +29,6 @@ Route::middleware('guest')->group(function () {
     //             ->name('password.store');
 
     Route::get('/', [RecordController::class, 'index'])->name('dashboard');
-    Route::get('/dashboard', [RecordController::class, 'index'])->name('dashboard');
     Route::get('/records/getAllRecords', [RecordController::class, 'getAllRecords'])->name('records.getAllRecords');
 });
 
