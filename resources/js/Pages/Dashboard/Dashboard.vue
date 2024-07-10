@@ -1,7 +1,7 @@
 <script setup>
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useDarkMode, currentSelection } from '@/Composables'
 import Modal from '@/Components/Modal.vue';
 import ViewRecordDetails from './Partials/ViewRecordDetails.vue';
@@ -36,6 +36,10 @@ onMounted(() => {
     getData();
 });
 
+const isDark = computed(() => {
+    return isDarkMode;
+});
+
 const showRecordDetailsModal = (record) => {
     selectedRecord.value = record;
     recordDetailsModalIsOpen.value = true;
@@ -65,7 +69,7 @@ const hideRecordDetailsModal = () => {
                         <span class="self-stretch text-sm text-gray-8 dark:text-white font-bold">{{ currentSelection.language === 'ENG' ? 'Welcome to Minilotto.info!' : '歡迎來到 Minilotto.info！' }}</span>
                         <span class="self-stretch text-xs text-gray-4 dark:text-gray-3">{{ currentSelection.language === 'ENG' ? 'Check the latest winning numbers and good luck!' : '查看最新的開獎號碼，祝您好運！' }}</span>
                     </div>
-                    <component :is="isDarkMode ? DashboardDarkIcon : DashboardLightIcon" class="flex-shrink-0"></component>
+                    <component :is="isDark ? DashboardDarkIcon : DashboardLightIcon" class="flex-shrink-0"></component>
                 </div>
                 <div class="overflow-hidden scrollbar-0 w-full flex flex-col items-center gap-3">
                     <div 
@@ -79,7 +83,7 @@ const hideRecordDetailsModal = () => {
                         <span class="break-all line-clamp-1 text-ellipsis text-gray-5 dark:text-gray-3 text-sm">{{ record.message }}</span>
                     </div>
                     <div class="w-full flex flex-col items-center justify-center gap-5" v-else>
-                        <component :is="isDarkMode ? NotFoundDarkIcon : NotFoundLightIcon"></component>
+                        <component :is="isDark ? NotFoundDarkIcon : NotFoundLightIcon"></component>
                         <span class="self-stretch text-center text-gray-4 text-xs">{{ currentSelection.language === 'ENG' ? 'No Records Found' : '暫無紀錄' }}</span>
                     </div>
                 </div>
