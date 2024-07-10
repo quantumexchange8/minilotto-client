@@ -128,8 +128,8 @@ const deleteRecord = (url) => {
                         <DialogPanel
                             class="transform w-full fixed rounded-2xl bg-white dark:bg-gray-8 text-left align-middle shadow-xl transition-all"
                             :class="[
-                                'w-full sm:max-w-[360px] max-h-[96%]',
-                                !props.deleteConfirmation ? 'py-4 min-h-[96%]' : 'flex flex-col gap-6 px-4 pt-5 pb-4',
+                                'w-full sm:max-w-[360px] max-h-[98%]',
+                                !props.deleteConfirmation ? 'py-4 min-h-[98%]' : 'flex flex-col gap-6 px-4 pt-5 pb-4',
                             ]"
                         >
                             <template v-if="!props.deleteConfirmation">

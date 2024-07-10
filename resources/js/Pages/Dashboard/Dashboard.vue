@@ -75,12 +75,14 @@ const hideRecordDetailsModal = () => {
                     <div 
                         v-if="records.length > 0"
                         v-for="(record, index) in records" :key="index"
-                        class="w-full flex flex-col items-center self-stretch p-4 gap-1 rounded bg-gray-1 dark:bg-gray-7" 
+                        class="w-full flex flex-col self-stretch p-4 gap-1 rounded bg-gray-1 dark:bg-gray-7" 
                         @click="showRecordDetailsModal(record)"
                     >
                         <span class="self-stretch text-gray-4 text-xs">{{ record.updated_at }}</span>
-                        <span class="break-all line-clamp-1 text-ellipsis self-stretch text-gray-8 dark:text-white text-sm font-bold">{{ record.subject_title }}</span>
-                        <span class="break-all line-clamp-1 text-ellipsis text-gray-5 dark:text-gray-3 text-sm">{{ record.message }}</span>
+                        <div v-html="record.subject_title" class="break-all line-clamp-1 text-ellipsis self-stretch text-gray-8 dark:text-white text-sm font-bold"></div>
+                        <div v-html="record.message" class="break-all line-clamp-1 text-ellipsis text-gray-5 dark:text-gray-3 text-sm"></div>
+                        <!-- <span class="break-all line-clamp-1 text-ellipsis self-stretch text-gray-8 dark:text-white text-sm font-bold">{{ record.subject_title }}</span>
+                        <span class="break-all line-clamp-1 text-ellipsis text-gray-5 dark:text-gray-3 text-sm">{{ record.message }}</span> -->
                     </div>
                     <div class="w-full flex flex-col items-center justify-center gap-5" v-else>
                         <component :is="isDark ? NotFoundDarkIcon : NotFoundLightIcon"></component>
