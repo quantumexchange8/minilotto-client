@@ -81,8 +81,6 @@ const hideRecordDetailsModal = () => {
                         <span class="self-stretch text-gray-4 text-xs">{{ record.updated_at }}</span>
                         <div v-html="record.subject_title" class="break-all line-clamp-1 text-ellipsis self-stretch text-gray-8 dark:text-white text-sm font-bold"></div>
                         <div v-html="record.message" class="break-all line-clamp-1 text-ellipsis text-gray-5 dark:text-gray-3 text-sm"></div>
-                        <!-- <span class="break-all line-clamp-1 text-ellipsis self-stretch text-gray-8 dark:text-white text-sm font-bold">{{ record.subject_title }}</span>
-                        <span class="break-all line-clamp-1 text-ellipsis text-gray-5 dark:text-gray-3 text-sm">{{ record.message }}</span> -->
                     </div>
                     <div class="w-full flex flex-col items-center justify-center gap-5" v-else>
                         <component :is="isDark ? NotFoundDarkIcon : NotFoundLightIcon"></component>

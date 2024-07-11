@@ -1,5 +1,4 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import { Link } from '@inertiajs/vue3';
 import { useDarkMode, currentSelection } from '@/Composables'
 import { SunIcon, MoonIcon, LanguageIcon } from '@/Components/Icons/outline';
@@ -46,10 +45,6 @@ const { isDarkMode, toggleDarkMode } = useDarkMode();
                                     >
                                         <LanguageIcon class="w-5 h-5 text-gray-5 dark:text-white"/>
                                     </Button>
-                                    
-                                    <!-- <DropdownLink :href="route('logout')" method="post" as="button">
-                                        <LogoutIcon :class="isDarkMode ? 'text-white' : 'text-gray-5'" />
-                                    </DropdownLink> -->
                                 </div>
                             </div>
                         </div>

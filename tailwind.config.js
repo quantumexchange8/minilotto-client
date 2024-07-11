@@ -74,7 +74,22 @@ export default {
         },
     },
 
-    plugins: [forms, typography],
+    plugins: [
+        forms,
+        function ({ addUtilities }) {
+            addUtilities({
+                '.empty-paragraph': {
+                    margin: '0!important',
+                },
+                '.empty-paragraph::before': {
+                    content: "'\\00A0'", // Non-breaking space
+                    display: 'block',
+                    lineHeight: '20px',
+                },
+            }, ['responsive', 'hover']);
+        },
+        typography
+    ],
     
     darkMode: 'class'
 };
