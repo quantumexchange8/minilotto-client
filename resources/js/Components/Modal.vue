@@ -114,7 +114,7 @@ const deleteRecord = (url) => {
 
             <div class="fixed inset-0 overflow-y-auto">
                 <div
-                    class="flex min-h-screen items-center justify-center p-4 text-center"
+                    class="flex min-h-dvh items-center justify-center p-4 text-center"
                 >
                     <TransitionChild
                         as="template"
