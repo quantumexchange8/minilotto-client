@@ -126,9 +126,8 @@ const deleteRecord = (url) => {
                         leave-to="opacity-0 scale-95"
                     >
                         <DialogPanel
-                            class="transform w-full fixed rounded-2xl bg-white dark:bg-gray-8 text-left align-middle shadow-xl transition-all"
+                            class="transform w-full sm:max-w-[360px] max-h-[98%] fixed rounded-2xl bg-white dark:bg-gray-8 text-left align-middle shadow-xl transition-all"
                             :class="[
-                                'w-full sm:max-w-[360px] max-h-[98%]',
                                 !props.deleteConfirmation ? 'min-h-[98%]' : 'flex flex-col gap-6 px-4 pt-5 pb-4',
                             ]"
                         >
