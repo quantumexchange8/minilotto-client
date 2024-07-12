@@ -1,4 +1,7 @@
 <script setup>
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import { ref, onMounted, computed } from 'vue'
@@ -6,6 +9,9 @@ import { useDarkMode, currentSelection } from '@/Composables'
 import Modal from '@/Components/Modal.vue';
 import ViewRecordDetails from './Partials/ViewRecordDetails.vue';
 import { DashboardLightIcon, DashboardDarkIcon, NotFoundLightIcon, NotFoundDarkIcon } from '@/Components/Icons/outline.jsx';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 const props = defineProps({
     toastOption: {
@@ -24,8 +30,7 @@ const getData = async () => {
         records.value = recordsResponse.data;
 
         records.value.forEach(record => {
-            const newDate = new Date(record.updated_at);
-            record.updated_at = (newDate.getDate()  < 10 ? '0' + newDate.getDate() : newDate.getDate()) + '/' + ((newDate.getMonth() + 1) < 10 ? '0' + (newDate.getMonth() + 1) : (newDate.getMonth() + 1)) + '/' + (newDate.getFullYear() < 10 ? '0' + newDate.getFullYear() : newDate.getFullYear());
+            record.updated_at = dayjs(record.updated_at).tz("Asia/Kuala_Lumpur").format('DD-MM-YYYY h:mm A')
         });
     } catch (error) {
         console.error('Error fetching data:', error);
