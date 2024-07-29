@@ -30,7 +30,7 @@ const getData = async () => {
         records.value = recordsResponse.data;
 
         records.value.forEach(record => {
-            record.updated_at = dayjs(record.updated_at).tz("Asia/Kuala_Lumpur").format('DD-MM-YYYY h:mm A')
+            record.updated_at = dayjs(record.updated_at).tz("Asia/Kuala_Lumpur").format('DD-MM-YYYY')
         });
     } catch (error) {
         console.error('Error fetching data:', error);
